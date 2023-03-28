@@ -1,13 +1,9 @@
-// javascripts variables
-const app = require('./app');
+const http = require('http');
 
-console.log(app.test());
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'application/json'})
+    res.write("Welcome to nodejs learning");
+    res.end();
+});
 
-//Global modules
-console.log("The console log function is global modules");
-console.log(__dirname);  // global modules don't need to import 
-console.log(__filename);
-
-// Non Global modules
-const fs = require('fs');
-fs.writeFileSync('api.txt',"name: Guled Mohamed, title: manager"); // you must import the fs modules
+server.listen(3000,()=>console.log("The server listening on port 3000 is now running"));
