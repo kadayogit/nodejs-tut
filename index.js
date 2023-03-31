@@ -1,9 +1,15 @@
-const http = require('http');
+const fs = require('fs');
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {'Content-Type': 'application/json'})
-    res.write("Welcome to nodejs learning");
-    res.end();
-});
+// how to create input text dynamically 
+const input = process.argv;
 
-server.listen(3000,()=>console.log("The server listening on port 3000 is now running"));
+// add or remove the file using if condition
+if(input[2] == 'add') {
+    fs.writeFileSync(input[3], input[4]);
+}
+else if (input[2] == 'remove'){
+    fs.unlinkSync(input[3])
+}
+else {
+    console.log("Invalid input text");
+}
