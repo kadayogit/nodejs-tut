@@ -4,7 +4,7 @@ const path = require('path');
 // create app with express
 const app = express();
 // directory path
-const viewPath = path.join(__dirname,'view');
+const viewPath = path.join(__dirname,'public');
 
 app.get('',(_, res)=>{
     res.sendFile(`${viewPath}/index.html`);
@@ -26,7 +26,5 @@ app.get('/other',(_, res)=>{
 app.get('*',(_, res)=>{
     res.sendFile(`${viewPath}/error.html`);
 });
-
-
 
 app.listen(5000);
