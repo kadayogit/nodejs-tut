@@ -8,19 +8,15 @@
 </head>
 <body>
 
+    <!-- add header menu -->
+    <%- include('layouts/header'); %>
+
     <h1>User Profile Page</h1>
-    <table width="400">
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Login Date</th>
-        </tr>
-        <tr>
-            <td><%= users.name %></td>
-            <td><%= users.email %></td>
-            <td><%= users.login_date %></td>
-        </tr>
-    </table>
+    <u>
+        <% users.skills.forEach((item)=>{%>
+        <li><%= item %></li>
+        <% })%>
+    </u>
     
 </body>
 </html>

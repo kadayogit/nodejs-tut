@@ -11,11 +11,16 @@ app.get('/profile',(req, res)=>{
     const users ={
         name: 'kadayo',
         email: 'admin@admin.com',
-        login_date: '01/04/2023'
+        login_date: '01/04/2023',
+        skills: ['php','laravel','nodejs', 'mysql','javascript']
     }
 
     // then you can use users as object in second parameters
     res.render('profile', {users});
-})
+});
+
+app.get('/header',(_, res)=>{
+res.render('layouts/header')
+});
 
 app.listen(3000);
